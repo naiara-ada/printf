@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narrospi <narrospi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: narrospi <narrospi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 11:39:37 by narrospi          #+#    #+#             */
-/*   Updated: 2024/09/28 11:39:46 by narrospi         ###   ########.fr       */
+/*   Created: 2024/09/27 13:10:25 by narrospi          #+#    #+#             */
+/*   Updated: 2024/10/01 11:06:21 by narrospi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
+#include "printf.h"
 
 int	handle_format(va_list args, const char character)
 {
@@ -33,10 +32,10 @@ int	handle_format(va_list args, const char character)
 	else if (character == 'p')
 		count = print_pointer(va_arg(args, unsigned long));
 	else if (character == '%')
-		{
-			write (1, "%", 1);
-			count ++;
-		}
+	{
+		write (1, "%", 1);
+		count ++;
+	}
 	return (count);
 }
 
@@ -55,7 +54,7 @@ int	ft_printf(char const *str, ...)
 		{
 			count += handle_format(args, str[i + 1]);
 			i++;
-		}			
+		}
 		else
 			count += printchar(str[i]);
 		i++;
