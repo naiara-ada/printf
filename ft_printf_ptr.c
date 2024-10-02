@@ -24,12 +24,12 @@ int	print_pointer(unsigned long ptr)
 	int	count;
 
 	count = 0;
-	write(1, "0x", 2);
 	if (ptr == 0)
 	{
-		write(1, "0", 1);
-		return (3);
+		write(1, "(nil)", 5);
+		return (5);
 	}
+	write(1, "0x", 2);
 	print_hex_ptr(ptr);
 	while (ptr)
 	{
