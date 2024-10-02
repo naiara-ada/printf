@@ -50,7 +50,7 @@ int	ft_printf(char const *str, ...)
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1] != '\0')
 		{
 			count += handle_format(args, str[i + 1]);
 			i++;
